@@ -6,13 +6,15 @@ import useStore from '../context/context'
 import { toast } from 'react-toastify'
 
 
+const backlink=import.meta.env.VITE_URL_BACKEND
+
 function Home() {
   const {countries,setCountries}=  useStore()
 
   useEffect(()=>{
       async function getAllCountries() {
         toast.info("Getting Countries.",{autoClose:1500});
-        const res = await axios.get("http://localhost:3000/")
+        const res = await axios.get(`${backlink}`)
         setCountries(res.data)
        
       }

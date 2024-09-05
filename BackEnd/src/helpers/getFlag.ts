@@ -11,7 +11,7 @@ interface IFlag{
 
 async function getFlag(countryName:string) {
     try {
-        const allflags = await axios.get("https://countriesnow.space/api/v0.1/countries/flag/images")
+        const allflags = await axios.get(`${process.env.FLAG_API}`)
         const result = allflags.data.data.find((flag:IFlag)=>flag.name == countryName)
         if(result){return result}
     } catch (error:any) {

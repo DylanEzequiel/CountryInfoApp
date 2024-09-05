@@ -14,7 +14,7 @@ interface IPopulationCountry{
 
 async function getPopulation(countryName:string) {
     try {
-        const allPopulation =await axios.get("https://countriesnow.space/api/v0.1/countries/population")
+        const allPopulation =await axios.get(`${process.env.POPULATION_API}`)
         const result =  allPopulation.data.data.find((population:IPopulationCountry) => population.country == countryName);
         if(result){return result}
     } catch (error:any) {

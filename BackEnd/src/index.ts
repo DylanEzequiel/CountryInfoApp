@@ -2,6 +2,10 @@ import express from 'express';
 import router from './routes/countryRoutes';
 import cors from "cors"
 import morgan from "morgan"
+
+require('dotenv').config()
+
+
 const app = express();
 const port = process.env.PORT || 3000;
 

@@ -4,10 +4,11 @@ import getFlag from "../helpers/getFlag";
 import getBorderCountries from "../helpers/getBorderCountries";
 
 //Function to get all countrys
+
 async function getAllCountries() {
     try {
         console.log("llego a controlador")
-        const res = await axios.get("https://date.nager.at/api/v3/AvailableCountries")
+        const res = await axios.get(`${process.env.COUNTRIES_API}`)
         console.log(res.data)
         if(res){ return res.data } 
     } catch (error:any) {
